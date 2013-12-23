@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>填充试卷</title>
+<script type="text/javascript" src="js/jquery182.js" ></script>
+<style type="text/css">
+<!--
+html,body{ width:100%; height:100%; padding:0; margin:0;}
+.qus_contain{ width:100%; height:80%; float:left; overflow:scroll; overflow-x:auto; color:#FFFFFF;}
+.qus_contain table tr{ background:#993333;}
+.s_i{ width:40px; height:13px;}
+.i_s{ width:40px; height:13px; background:#993300;}
+.i_s:hover{ cursor:pointer; text-decoration:underline;}
+.qus_contain table tr:hover{ background:#0000FF;}
+.specify_contain{ width:30%; height:100%; background:#00CC66; float:left; overflow:scroll; overflow-x:auto;}
+
+.paper_contain{ width:100%; height:15%; background:#990033; clear:both;}
+.opt_contain{ width:100%; height:5%; background:#000000; color:#FFFFFF; text-align:left;}
+.opt_contain a{ text-decoration:none; color:#FFFFFF;}
+.opt_contain a:visited{ text-decoration:none; color:#FFFFFF;}
+.opt_contain a:hover{ text-decoration:underline; color:#FFFFFF;}
+-->
+</style>
+<script type="text/javascript">
+<!--
+function do_all(obj){
+	var isChecked = $(obj).attr("checked");
+	if(isChecked)
+		$("[name = qus]:checkbox").attr("checked", true); 
+	else
+	 	$("[name = qus]:checkbox").attr("checked", false);  
+	
+	
+}
+
+function add(){
+	var answer = "";
+	$("[name = qus]:checkbox").each(function() {  
+         if ($(this).attr("checked")) {  
+             answer += $(this).val() + "\n";  
+         }  
+    });  
+	alert(answer);
+}
+
+function changeValue(obj){
+	var v = $(obj).html();
+	var edit = "<input type=\"text\"  class=\"s_i\" value=\"" + v + "\" onblur=\"saveValue(this)\" />";
+	$(obj).replaceWith(edit);
+	//alert(v);
+	
+}
+
+function saveValue(obj){
+	var v = $(obj).val();
+	var show = "<span  class=\"i_s\" onclick=\"changeValue(this)\">"+v+"</span>"
+	$(obj).replaceWith(show);
+	//alert(v);
+}
+//-->
+</script>
+</head>
+
+<body>
+
+<div style="height:100%; float:left; width:70%;">
+
+<div class="opt_contain">
+<table width="100%" align="left">
+	<tr>
+        <td width="6%" >ID</td>
+        <td width="60%" >标题</td>
+        <td width="6%" >答案</td>
+        <td width="9%" >最后操作</td>
+        <td width="6%" >分数</td>
+        <td width="8%"><input type="checkbox" name="opt_all"  onclick="do_all(this)" /><b><a onclick="add()" href="#">ADD</a></b></td>
+    </tr>
+</table>
+</div>
+<div class="qus_contain">
+<table width="100%" align="left">
+	<tr>
+        <td width="6%" >222</td>
+        <td width="65%" >这个题你会做吗？？为什么不会？</td>
+        <td width="6%" >ABC</td>
+        <td width="9%" >admin</td>
+        <td width="6%" ><span  class="i_s" onclick="changeValue(this)">4</span></td>
+        <td width="8%"><input type="checkbox" name="qus" value="212"/></td>
+    </tr>
+	
+</table>
+</div>
+
+<div class="paper_contain">
+	<table width="100%">
+    	<tr>
+        	<td colspan="2">数据结构期末考试</td>
+            <td width="72%" rowspan="4">ddddddddddddddddddddddddddddddddddddddddd</td>
+      </tr>
+        <tr>
+        	<td width="13%">题量</td>
+          <td width="15%">22</td>
+      </tr> <tr>
+        	<td>总分</td>
+            <td>100</td>
+        </tr> <tr>
+        	<td>当前类别</td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+</div>
+<div class="specify_contain"></div>
+</body>
+</html>

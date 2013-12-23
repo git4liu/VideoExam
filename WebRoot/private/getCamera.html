@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+    <head>
+        <title></title>
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+
+            
+        <script type="text/javascript" src="swfobject.js"></script>
+        <script type="text/javascript">
+            // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+            var swfVersionStr = "11.1.0";
+            // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+            var xiSwfUrlStr = "playerProductInstall.swf";
+            var flashvars = {};
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "getCamera";
+            attributes.name = "getCamera";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "getCamera.swf", "flashContent", 
+                "400", "180", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+          
+			function getPic(){
+				return "http://localhost:8080/vex/upload/upload_2989788_13c99f57803__8000_00000000.tmp";
+			}
+			
+			function getBasePath(){
+				return "basePath from js";
+			}
+			
+			function getExamId(){
+				return "ExamId from js";
+			}
+			
+			function getStuId(){
+				return "stuId from js";
+			}
+			function invokeFlexExamId(){
+				var flashContent = document.getElementById("getCamera");
+				alert(flashContent);
+				flashContent.invokeFlexExamId("hello");
+			}
+        
+        </script>
+    </head>
+
+    <body>
+    <div id="flashContent"></div>
+    <button onclick="invokeFlexExamId()">click</button>
+   </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+html,body{ padding:0; margin:0;}
+.table{ width:100%; height:auto; text-align:center; padding-top:30px; color:#FFFFFF;}
+.tr{ width:100%; height:25px; background:#000066; margin-top:2px;}
+.th{ width:100%; height:25px; z-index:100; position:fixed; top:0px; color:#FFFFFF; text-align:center;}
+.tr div{ height:25px; background:#666666; margin-right:2px; float:left; line-height:25px;}
+.th div{ height:25px; background:#000000; margin-right:2px; float:left; line-height:25px;}
+.td_name{ width:40%; }
+.td_id{ width:30px;}
+.td_mount{ width:70px;}
+.td_mgr{ width:100px; }
+.td_del{ width:70px;}
+.td_updt{ width:70px;}
+.td_adsb{ width:140px; color:#666633}
+-->
+</style>
+<script type="text/javascript" src="admin/js/jquery182.js"></script>
+<script type="text/javascript">
+<!--
+
+function show_sub(){
+	alert("show_sub");
+	var h = $("<div></div>").append($("#d").clone()).html();
+	//alert(h);
+	h = h.replace("onclick=\"show_sub()\"","onclick=\"hide_sub()\"");
+	h = h.replace("onclick=show_sub()","onclick=hide_sub()");
+	//alert(h);
+	$("#d").replaceWith(h);
+//	alert($("#d").html());
+	
+}
+function hide_sub(){
+	alert("hide_sub");
+	var h = $("<div></div>").append($("#d").clone()).html();
+	h = h.replace("onclick=\"hide_sub()\"","onclick=\"show_sub()\"");
+	h = h.replace("onclick=hide_sub()","onclick=show_sub()");
+	$("#d").replaceWith(h);
+}
+//-->
+</script>
+</head>
+
+<body>
+<div class="th">
+    	<div class="td_name">知识点名称</div>
+        <div class="td_id">id</div>
+        <div class="td_mount">子类数量</div>
+        <div class="td_mgr">最后修改</div>
+        <div class="td_del" style="width:284px;">操作</div>
+    </div>
+<div class="table">
+	<div class="tr">
+    	<div class="td_name" style="text-align:left;">数据结构</div>
+        <div class="td_id">90</div>
+        <div class="td_mount">2</div>
+        <div class="td_mgr">liujie</div>
+        <div class="td_del">删除</div>
+        <div class="td_updt">修改</div>
+        <div class="td_adsb">添加子类别</div>
+    </div>
+</div>
+<img src="images/page.gif" onclick="show_sub()"  id="d"/>
+</body>
+</html>
